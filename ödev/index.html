@@ -1,0 +1,100 @@
+﻿<!DOCTYPE html>
+<html lang="en-US">
+<head>
+    <title>First bootstrap web Page</title>
+
+    <link href="css/bootstrap.css" rel="stylesheet" />
+
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <style>
+        div[class*="col"]{
+            border:1px solid black;
+            padding:0.5rem;
+        }
+
+        .first-col{
+            background:url('https://www.pcz.pl/sites/all/themes/pcz2016/img/logo.png') no-repeat;
+            background-size:120px ;
+        }
+
+         .liste1 {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+        }
+
+        .liste1 li {
+            float: left;
+        }
+
+        .liste1 li a {
+
+            display: block;
+            color: blue;
+            text-align: center;
+            padding: 10px 0 5px 20px;
+            text-decoration: none;
+        }
+
+
+        
+    </style>
+</head>
+
+<body>
+    <script src="js/jquery-3.4.1.js"></script>
+    <script src="js/popper.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+
+    <div class="container">
+        <div class="row" style="height:110px;">
+            <div class="first-col col-sm-2">col</div>
+            <div class="second-col col-sm-10">
+                <h2>Programming of web pages</h2>
+                <p><b>email:</b>piotr.dziwinski@pcz.pl</p>
+            </div>
+            
+        </div>
+
+        <div class="row">
+            <ul class="liste1">
+
+                <li><a href="subfolder/news.html" target="xxx"><u>Main Page</u></a></li>
+                <li><a href="subfolder/html.html" target="xxx"><u>HTML</u></a></li>
+                <li><a href="subfolder/css.html" target="xxx"><u>CSS</u></a></li>
+                <li><a href="subfolder/javascript.html" target="xxx"><u>JavaScript</u></a></li>
+
+            </ul>
+
+        </div>
+
+        <div class="row" style="height:690px;">
+            <div class="third-col col-sm-2">
+                <div class="menu">
+
+                    <ul>
+                        <h3>Menu</h3>
+                        <li><a href="ex1.html" target="xxx"><u>Exercise 1</u></a></li>
+                        <li><a href="ex2.html" target="xxx"><u>Exercise 2</u></a></li>
+
+                    </ul>
+
+                </div>
+
+                
+
+            </div>
+            <div class="col-sm-10"></div>
+
+
+        </div>
+
+        <div class="row">
+            Copyright © 2020
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+    <link href="css/bootstrap.css" rel="stylesheet" />
+
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+
+    <script type="text/javascript" src="js/jquery-3.5.1.min.js"></script>
+
+    <script type="text/javascript" src="js/popper.min.js"></script>
+    <script type="text/javascript" src="js/bootstrap.min.js"></script>
+</head>
+<body>
+    <table class="table" id="myTable">
+        <thead class="thead-dark">
+            <tr>
+                <th>Firstname</th>
+                <th>Lastname</th>
+                <th>Email</th>
+                <th>Grade</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr class="item">
+                <td>Sedef</td>
+                <td>Bostanci</td>
+                <td>sedefbostanci@example.com</td>
+                <td class="id">5</td>
+            </tr>
+            <tr class="item">
+                <td>Ayca</td>
+                <td>Mert</td>
+                <td>mertayca@example.com</td>
+                <td class="id">5</td>
+            </tr>
+            <tr class="item">
+                <td>Fahri</td>
+                <td>Ozkan</td>
+                <td>ozkanf@example.com</td>
+                <td class="id">3</td>
+            </tr>
+            <tr class="item">
+                <td>Ertug</td>
+                <td>Sen</td>
+                <td>ertugsen@example.com</td>
+                <td class="id">2</td>
+            </tr>
+            <tr class="item">
+                <td>Beray</td>
+                <td>Basar</td>
+                <td>basarb@example.com</td>
+                <td class="id">4</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#myModal">
+        Add new student
+    </button>
+
+    <div class="modal" id="myModal" tabindex="-1" role="dialog">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">New Student</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form action="/action_page.php">
+                        <div class="form-group">
+                            <label for="name">First Name:</label>
+                            <input type="text" class="form-control" placeholder="Enter name" id="name">
+                        </div>
+                        <div class="form-group">
+                            <label for="surname">Last Name:</label>
+                            <input type="text" class="form-control" placeholder="Enter surname" id="surname">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="email">Email address:</label>
+                            <input type="email" class="form-control" placeholder="Enter email" id="email">
+                        </div>
+                        <div class="form-group">
+                            <label for="grade">Grade:</label>
+                            <input type="number" class="form-control" placeholder="Enter grade" id="grade">
+                        </div>
+                        <div class="alert alert-warning alert-dismissible" role="alert" id="error">
+
+                        </div>
+                        
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary" id="save">Save changes</button>
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                </div>
+                
+            </div>
+        </div>
+    </div>
+    <script src='http://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.2.1.js'></script>
+
+    <script type="text/javascript">
+
+        $(document).ready(function () {
+
+
+            $("#myTable tr.item").each(function () {
+
+
+                var grade = $(this).find("td.id").text();
+
+                if (grade > 4) {
+                    $(this).addClass("success");
+                }
+                else if (grade == 3 || grade == 4) {
+                    $(this).addClass("warning");
+                }
+                else if (grade < 3) {
+                    $(this).addClass("danger");
+                }
+            });
+        });
+
+        $("#save").click(function () {
+
+            var name = $('input[id=name]').val();
+            var surname = $('input[id=surname]').val();
+            var email = $('input[id=email]').val();
+            var grade = $('input[id=grade]').val();
+            var class_type;
+
+
+            if (grade > 4) {
+                class_type="success";
+            }
+            else if (grade == 3 || grade == 4) {
+                class_type="warning";
+               
+            }
+            else if (grade < 3) {
+                class_type="danger";
+                
+            }
+            $('#myTable > tbody:last-child').append('<tr class="new">' + '<td>' + name + '</td>' + '<td>' + surname + '</td>' + '<td>' + email + '</td>' + '<td>' + grade + '</td>' + '</tr>');
+            $('#myTable tr.new').addClass(class_type);
+
+            
+            if ($.isNumeric(grade) == false) {
+                $("#error").text("Invalid Grade");
+                 $("#error").append('<button type="button" class="btn btn-primary"  onclick="a()">'+"OK"+'</button>');
+                $('#myModal').modal("show");
+
+                
+                
+            }
+        });
+
+        function a() {
+           
+            $('#myTable tr:last').remove();
+          
+        }
+    </script>
+
+
+
+
+</body>
+    
+</html>
