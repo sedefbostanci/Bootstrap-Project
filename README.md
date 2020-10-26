@@ -6,7 +6,7 @@ The laboratory exercises aim to familiarize the student with the basics of using
 Bootstrap components.
 
 **#1.1 Exercise 1**
-
+fddhghghf
 Please add the subpage to the page from the last laboratory containing the following
 components:
 a. Bootstrap header h2
